@@ -7,8 +7,10 @@
     * `timedatectl set-ntp true`
 
 3) Partition disks following this general layout (for EFI systems):
-    * 512MB EFI partition: `/dev/sda1`
-    * (remaining disk) root EXT4 partition: `/dev/sda2`
+    | Partition  |  Size        | Type                  |
+    |------------|--------------|-----------------------|
+    | /dev/sda1  | 600 MB       | EFI System Partition  |
+    | /dev/sda2  | Entire Disk  | Linux Filesystem      |
 
 4) Format the newly created partitions and set up swap for use:
     * `mkfs.ext4 /dev/sda2`
