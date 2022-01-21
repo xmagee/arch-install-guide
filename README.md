@@ -22,7 +22,7 @@
     * `mount /dev/sda1 /mnt/boot`
 
 6) Install essential packages needed for minimal install (if on AMD system, exchange 'intel-ucode' for 'amd-ucode'): 
-    * `pacstrap /mnt base base-devel linux linux-firmware linux-headers dhcpcd intel-ucode sudo nano htop git`
+    * `pacstrap /mnt base base-devel linux linux-firmware linux-headers dhcpcd intel-ucode sudo nano htop git terminator neofetch`
 
 7) Generate content for fstab file at `/mnt/etc/fstab`: 
     * `genfstab -U /mnt >> /mnt/etc/fstab`
@@ -97,27 +97,9 @@
 
 23) Reboot, and *hopefully* boot into a nice fresh and clean OS. Exit chroot with **CTRL-D**, and:
     * `reboot`
-
-****** 
-### **Optional post-install tasks** 
-
-* Install the suckless DWM window manager, like the chad that you are: 
-    * `sudo pacman -S xorg xorg-xinit`
-    * `sudo mkdir /usr/src/suckless && cd /usr/src/suckless`
-    * `sudo git clone git://git.suckless.org/dwm`
-    * `sudo git clone git://git.suckless.org/st`
-    * `sudo git clone git://git.suckless.org/dmenu`
-    * `cd dwm && sudo make clean install`
-    * `cd ../dmenu && sudo make clean install`
-    * `cd ../st && sudo make clean install`
-    * `echo "exec dwm;" >> ~/.xinitrc`
-    * start DWM by running: `startx`
     
-* Clone and install yay, an AUR helper: 
-    * `cd /opt`
-    * `sudo git clone https://aur.archlinux.org/yay.git`
-    * `sudo chown -R MYUSER:users ./yay`
-    * `cd yay && makepkg -si`
-
-* Install some basics:
-    * `sudo pacman -S firefox chromium evolution terminator neofetch`
+24) Clone and install yay, an AUR helper:
+   * `cd /opt`
+   * `sudo git clone https://aur.archlinux.org/yay.git`
+   * `sudo chown -R MYUSER:users ./yay`
+   * `cd yay && makepkg -si`
